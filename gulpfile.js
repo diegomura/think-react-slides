@@ -82,12 +82,13 @@ gulp.task('clean:images', function(done) {
 gulp.task('connect', ['build'], function() {
   connect.server({
     root: 'dist',
-    livereload: true
+    livereload: true,
+    port: 8081
   });
 });
 
 gulp.task('open', ['connect'], function (done) {
-  opn('http://localhost:8080', done);
+  opn('http://localhost:8081', done);
 });
 
 gulp.task('watch', function() {

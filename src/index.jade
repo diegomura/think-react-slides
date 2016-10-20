@@ -32,68 +32,225 @@ html
       section.just-title(data-bespoke-backdrop='blessed')
         img.small(src="./images/react-logo.png")
         h2.white react-blessed
-    
+      
+      section.just-title(data-bespoke-backdrop='threejs')
+        img.small(src="./images/react-logo.png")
+        h2.white react-three-renderer
+      
       section.just-title(data-bespoke-backdrop='log')
         img.small(src="./images/react-logo.png")
         h2.white react-log
       
       section
-        h2 Advantages for using React 
+        h2 Advantages of using React 
         ul
-          li Hides complex API's integration
-          li Known syntax
-          li Easy serializable interfaces
-    
+          li Hides complex API
+          li Apply the same knowledge that you already have on other platform
+          li Simple serializable interfaces
+      
       section.just-title(data-bespoke-backdrop='architecture')
         h1 React architecture
         
       section
         h2 React core
         h3 Includes the API necessary to define Components, and no platform-specific code
+        
+      section
+        h2 React core
+        ul
+          li React.createElement()
+          li React.createClass()
+          li React.Component
+          li React.Children
+          li React.PropTypes
+        
+      section
+        h2 React core
+        img(src="./images/arch1.png")
       
       section
         h2 React Elements
         h3 A description of what needs to be rendered
       
       section
-        h2 React Components
+        pre
+          code.language-javascript.
+            { 
+              type: /* ... */,
+              key: /* ... */,
+              ref: /* ... */,
+              props: {
+                // ...
+                children: /* ... */,
+                // ...
+              }
+            }
       
       section
-        h4 Component types
+        h2 Element types
         img(src="./images/tree1.png")
       
       section
-        h4 Component types
+        h2 Element types
         img(src="./images/tree2.png")
       
       section
-        h4 Component types
-        h3 Compisite Components
-        h3 Host Components
+        h2 Renderers
+        h3 Manage how a React tree turns into the underlying platform calls
       
       section
-        h2 Rederers
-        h3 Manage how a React tree turns into the underlying platform calls
+        h3 Renderers
+        h4 Official supported renderers
+        pre
+          code.language-javascript.
+            - React DOM Renderers
+            - React Native Renderer
+            - React Test Renderer
+            - React-art Renderer
+      
+      section
+        h3 Renderers
+        img(src="./images/arch2.png")
       
       section
         h2 Mounter
         h3 Renderer's main method
       
       section
-        h2 Reconcilier
+        h3 Mounter
+        pre
+          code.language-javascript.
+            - ReactDOM.render
+            - AppRegistry.registerComponent
+            - ReactBlessed.render
       
       section
-        h2 Architecture diagram
+        h3 Mounter
+        img(src="./images/arch3.png")
+      
+      section
+        h2 Stack Reconcilier
+        h3 The Stack Reconcilier is the one powering all React code today.
+        h3 When a Component mounts, updates, or unmounts, the stack reconcilier calls a method on that internal instance
+      
+      section
+        h3 Stack Reconcilier
+        img(src="./images/arch4.png")
+      
+      section
+        h2 Internal Instances
         
       section
-        h2 Let's build a renderer!
+        h2 Component types
+        
+        div.columns
+          div
+            h4 Compisite Components
+            ul
+              li User defined Components
+              li Run user's code
+              li Behave the same way in all renderers
+          
+          div
+            h4 Host Components
+            ul
+              li No user code associated
+              li Run platform-specific code
+              li The output depends on the renderer
+        
+      section
+        h3 Internal Instances
+        img(src="./images/arch5.png")
+    
+      section
+        h2 Injection
+        
+      section
+        h3 Injection
+        img(src="./images/arch6.png")
+        
+      section(data-bespoke-backdrop='build')
+        h1 Let's build a renderer!
+      
+      section
+        h2 ReactPDF
+        h4 A React renderer to create PDF files
+        
+      section
+        h2 What do we need to do?
+        h4 Four main modules
+        ul
+          li Injection
+          li Mounter
+          li Host Component
+          li Reconcile Transaction
+      
+      section.large-section
+        h2 pdfkit
+        pre
+          code.language-javascript.
+            import fs from 'fs';
+            import pdf from 'pdfkit';
+            
+            // Create PDF document
+            const doc = new pdf;
+            // Set output path
+            doc.pipe(fs.createWriteStream(filePath));
+            // Add page to the document
+            doc.addPage();
+            // Add text to document
+            doc.text('Some content', options);
+            // Close document
+            doc.end();
+              
+      section
+        h2 Building the injection
+        ul
+          li Inject PDF Host Component
+      
+      section
+        h2 Building the mounter
+        ul
+          li Call injector
+          li instantiateReactComponent
+          li Initialize PDF document
+          li Starts mounting chain
+          li Close PDF file
+      
+      section.large-section
+        h2 Building the component
+        pre
+          code.language-javascript.
+            MinimumViableComponent.prototype = Object.assign(
+              {
+                getPublicInstance() {},
+                mountComponent() {},
+                receiveComponent() {},
+                unmountComponent() {},
+                getNativeNode() {}, // React  <= 15.0
+                getHostNode() {} // React > 15.0
+              },
+              ReactMultiChild.Mixin
+            );
+            
+      section
+        h2 Building the component
+        ul
+          li Handle how each type of element mounts
+          li Mount current element children
         
       section
         h2 Reflections
-        
         ul
           li More uses of React in the Future?
           li Renderers are an excelent way of getting familiar with React source code
+        
+      section
+        h1(style="margin-bottom: 50px") Questions?
+        div.hiring
+          img(src="./images/mooveit.png")
+          p We are hiring!
+          a moove-it.com/careers
         
       section
         h1(style="margin-bottom: 50px") Thanks!
