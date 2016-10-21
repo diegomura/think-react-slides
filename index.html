@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Think React from Out of the Box</title>
+    <link rel="stylesheet" type="text/css" href="build/build.css">
+  </head>
+  <body>
+    <article>
+      <section>
+        <h1 style="margin-bottom: 50px">Think React from Out of the 📦</h1>
+        <div class="social"><img src="./images/twitter.png">
+          <h4>@diegomura</h4>
+        </div>
+        <div class="social"><img src="./images/github.png">
+          <h4>diegomura</h4>
+        </div>
+      </section>
+      <section>
+        <h2>Just for UIs?</h2><img src="./images/react-description.png" class="small">
+      </section>
+      <section data-bespoke-backdrop="react-native" class="just-title"><img src="./images/react-logo.png" class="small">
+        <h2 class="white">React Native</h2>
+      </section>
+      <section data-bespoke-backdrop="oculus" class="just-title"><img src="./images/react-logo.png" class="small">
+        <h2 class="white">ReactVR</h2>
+      </section>
+      <section data-bespoke-backdrop="blessed" class="just-title"><img src="./images/react-logo.png" class="small">
+        <h2 class="white">react-blessed</h2>
+      </section>
+      <section data-bespoke-backdrop="threejs" class="just-title"><img src="./images/react-logo.png" class="small">
+        <h2 class="white">react-three-renderer</h2>
+      </section>
+      <section data-bespoke-backdrop="log" class="just-title"><img src="./images/react-logo.png" class="small">
+        <h2 class="white">react-log</h2>
+      </section>
+      <section>
+        <h2>Advantages of using React </h2>
+        <ul>
+          <li>Hides complex API</li>
+          <li>Apply the same knowledge that you already have on other platforms</li>
+          <li>Simple serializable interfaces</li>
+        </ul>
+      </section>
+      <section data-bespoke-backdrop="architecture" class="just-title">
+        <h1>React architecture</h1>
+      </section>
+      <section>
+        <h2>React core</h2>
+        <h3>Includes the API necessary to define Components.</h3>
+        <h3>Has no platform-specific code</h3>
+      </section>
+      <section>
+        <h2>React core</h2>
+        <ul>
+          <li>React.createElement()</li>
+          <li>React.createClass()</li>
+          <li>React.Component</li>
+          <li>React.Children</li>
+          <li>React.PropTypes</li>
+        </ul>
+      </section>
+      <section>
+        <h2>React core</h2><img src="./images/arch1.png">
+      </section>
+      <section>
+        <h2>React Elements</h2>
+        <h3>A description of what needs to be rendered</h3>
+      </section>
+      <section>
+        <pre><code class="language-javascript">{ 
+  type: /* ... */,
+  key: /* ... */,
+  ref: /* ... */,
+  props: {
+    // ...
+    children: /* ... */,
+    // ...
+  }
+}
+</code></pre>
+      </section>
+      <section>
+        <h2>Element types</h2><img src="./images/tree1.png">
+      </section>
+      <section>
+        <h2>Element types</h2><img src="./images/tree2.png">
+      </section>
+      <section>
+        <h2>Renderers</h2>
+        <h3>Manage how a React tree turns into the underlying platform calls</h3>
+      </section>
+      <section>
+        <h3>Renderers</h3>
+        <h4>Official supported renderers</h4>
+        <pre><code class="language-javascript">- React DOM Renderers
+- React Native Renderer
+- React Test Renderer
+- React-art Renderer
+</code></pre>
+      </section>
+      <section>
+        <h3>Renderers</h3><img src="./images/arch2.png">
+      </section>
+      <section>
+        <h2>Stack Reconcilier</h2>
+        <h3>The Stack Reconcilier is the one powering all React code today.</h3>
+        <h3>When a Component mounts, updates, or unmounts, the stack reconcilier calls a method on that internal instance</h3>
+      </section>
+      <section>
+        <h3>Stack Reconcilier</h3><img src="./images/arch3.png">
+      </section>
+      <section>
+        <h2>Mounter</h2>
+        <h3>Renderer's main method</h3>
+      </section>
+      <section>
+        <h3>Mounter</h3>
+        <pre><code class="language-javascript">- ReactDOM.render
+- AppRegistry.registerComponent
+- ReactBlessed.render</code></pre>
+      </section>
+      <section>
+        <h3>Mounting is a recursive process</h3>
+      </section>
+      <section>
+        <h3>Mounter</h3><img src="./images/arch4.png">
+      </section>
+      <section>
+        <h2>Internal Instances</h2>
+        <h3>Internal side of a consumer's React Components</h3>
+      </section>
+      <section>
+        <h2>Component types</h2>
+        <div class="columns">
+          <div>
+            <h4>Compisite Components</h4>
+            <ul>
+              <li>User defined Components</li>
+              <li>Run user's code</li>
+              <li>Behave the same way in all renderers</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Host Components</h4>
+            <ul>
+              <li>No user code associated</li>
+              <li>Run platform-specific code</li>
+              <li>The output depends on the renderer</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>Internal Instances</h3><img src="./images/arch5.png">
+      </section>
+      <section>
+        <h2>Injection</h2>
+        <h3>Inject custom Component implementations to the reconcilier</h3>
+      </section>
+      <section>
+        <h3>HostComponents Injection</h3>
+        <pre><code class="language-javascript">- injectGenericComponentClass()
+- injectTextComponentClass()
+- injectComponentClasses()
+</code></pre>
+      </section>
+      <section>
+        <h3>Injection</h3><img src="./images/arch6.png">
+      </section>
+      <section data-bespoke-backdrop="build">
+        <h1>Let's build a renderer!</h1>
+      </section>
+      <section>
+        <h2>react-pdf</h2>
+        <h4>A React renderer to create PDF files</h4>
+      </section>
+      <section>
+        <h2>What do we need to do?</h2>
+        <h4>Four main modules</h4>
+        <ul>
+          <li>Injection</li>
+          <li>Mounter</li>
+          <li>Host Component</li>
+          <li>Reconcile Transaction</li>
+        </ul>
+      </section>
+      <section class="large-section">
+        <h2>pdfkit</h2>
+        <pre><code class="language-javascript">import fs from 'fs';
+import pdf from 'pdfkit';
+
+// Create PDF document
+const doc = new pdf;
+// Set output path
+doc.pipe(fs.createWriteStream(filePath));
+// Add page to the document
+doc.addPage();
+// Add text to document
+doc.text('Some content', options);
+// Close document
+doc.end();
+</code></pre>
+      </section>
+      <section>
+        <h2>Building the injection</h2>
+        <ul>
+          <li>Inject PDF Host Component</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Building the mounter</h2>
+        <ul>
+          <li>Call injector</li>
+          <li>instantiateReactComponent</li>
+          <li>Initialize PDF document</li>
+          <li>Starts mounting chain</li>
+          <li>Close PDF file</li>
+        </ul>
+      </section>
+      <section class="large-section">
+        <h2>Building the component</h2>
+        <pre><code class="language-javascript">MinimumViableComponent.prototype = Object.assign(
+  {
+    getPublicInstance() {},
+    mountComponent() {},
+    receiveComponent() {},
+    unmountComponent() {},
+    getNativeNode() {}, // React  <= 15.0
+    getHostNode() {} // React > 15.0
+  },
+  ReactMultiChild.Mixin
+);
+</code></pre>
+      </section>
+      <section>
+        <h2>Building the component</h2>
+        <ul>
+          <li>Handle how each type of element mounts</li>
+          <li>Mount current element children</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Reflections</h2>
+        <ul>
+          <li>More uses of React in the Future?</li>
+          <li>Renderers are an excelent way of getting familiar with React source code</li>
+        </ul>
+      </section>
+      <section>
+        <h1 style="margin-bottom: 50px">Questions?      </h1>
+      </section>
+      <section>
+        <h1 style="margin-bottom: 50px">Thanks!</h1>
+        <div class="social"><img src="./images/twitter.png">
+          <h4>@diegomura</h4>
+        </div>
+        <div class="social"><img src="./images/github.png">
+          <h4>diegomura</h4>
+        </div>
+      </section>
+    </article>
+    <script src="build/build.js"></script>
+  </body>
+</html>
