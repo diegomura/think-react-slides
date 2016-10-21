@@ -45,7 +45,7 @@ html
         h2 Advantages of using React 
         ul
           li Hides complex API
-          li Apply the same knowledge that you already have on other platform
+          li Apply the same knowledge that you already have on other platforms
           li Simple serializable interfaces
       
       section.just-title(data-bespoke-backdrop='architecture')
@@ -53,7 +53,8 @@ html
         
       section
         h2 React core
-        h3 Includes the API necessary to define Components, and no platform-specific code
+        h3 Includes the API necessary to define Components.
+        h3 Has no platform-specific code
         
       section
         h2 React core
@@ -113,9 +114,18 @@ html
         img(src="./images/arch2.png")
       
       section
+        h2 Stack Reconcilier
+        h3 The Stack Reconcilier is the one powering all React code today.
+        h3 When a Component mounts, updates, or unmounts, the stack reconcilier calls a method on that internal instance
+      
+      section
+        h3 Stack Reconcilier
+        img(src="./images/arch3.png")
+      
+      section
         h2 Mounter
         h3 Renderer's main method
-      
+        
       section
         h3 Mounter
         pre
@@ -123,22 +133,16 @@ html
             - ReactDOM.render
             - AppRegistry.registerComponent
             - ReactBlessed.render
-      
+      section
+        h3 Mounting is a recursive process
+        
       section
         h3 Mounter
-        img(src="./images/arch3.png")
-      
-      section
-        h2 Stack Reconcilier
-        h3 The Stack Reconcilier is the one powering all React code today.
-        h3 When a Component mounts, updates, or unmounts, the stack reconcilier calls a method on that internal instance
-      
-      section
-        h3 Stack Reconcilier
         img(src="./images/arch4.png")
       
       section
         h2 Internal Instances
+        h3 Internal side of a consumer's React Components
         
       section
         h2 Component types
@@ -164,6 +168,15 @@ html
     
       section
         h2 Injection
+        h3 Inject custom Component implementations to the reconcilier
+      
+      section
+        h3 HostComponents Injection
+        pre
+          code.language-javascript.
+            - injectGenericComponentClass()
+            - injectTextComponentClass()
+            - injectComponentClasses()
         
       section
         h3 Injection
@@ -173,7 +186,7 @@ html
         h1 Let's build a renderer!
       
       section
-        h2 ReactPDF
+        h2 react-pdf
         h4 A React renderer to create PDF files
         
       section
@@ -244,13 +257,9 @@ html
         ul
           li More uses of React in the Future?
           li Renderers are an excelent way of getting familiar with React source code
-        
+      
       section
-        h1(style="margin-bottom: 50px") Questions?
-        div.hiring
-          img(src="./images/mooveit.png")
-          p We are hiring!
-          a moove-it.com/careers
+        h1(style="margin-bottom: 50px") Questions?      
         
       section
         h1(style="margin-bottom: 50px") Thanks!
